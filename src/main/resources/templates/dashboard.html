@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive plant selling website design tutorial</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link th:href="@{~/css/dashboard.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header>
+    <div class="header-2">
+
+        <a href="#" class="logo"> <i class="fas fa-seedling"></i> LOGO </a>
+
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="search here...">
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+
+    </div>
+
+    <div class="header-3">
+
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#category">category</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a src="BootStrap\login.html" class="fas fa-user-circle"></a>
+        </div>
+
+    </div>
+
+</header>
+
+<section class="banner-container">
+
+    <div class="banner">
+        <img th:src="@{~/images/dashboard/banner1.jpg}" alt="">
+        <div class="content">
+            <span>new arrivals</span>
+            <h3>house plants</h3>
+            <a href="#" class="btn">see types</a>
+        </div>
+    </div>
+    <div class="banner">
+        <img th:src="@{~/images/dashboard/banner2.jpg}" alt="">
+        <div class="content">
+            <span>new arrivals</span>
+            <h3>office plants</h3>
+            <a href="#" class="btn">see types</a>
+        </div>
+    </div>
+
+</section>
+
+<!-- banner section ends -->
+
+<!-- category section starts  -->
+
+<section class="category" id="category">
+
+    <h1 class="heading"> Category </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img th:src="@{~/images/dashboard/cat1.jpg}" alt="">
+            <div class="content">
+                <h3>bonsai</h3>
+                <a href="#" class="btn">see types</a>
+            </div>
+        </div>
+        <div class="box">
+            <img th:src="@{~/images/dashboard/cat2.jpg}" alt="">
+            <div class="content">
+                <h3>plants for house</h3>
+                <a href="#" class="btn">see types</a>
+            </div>
+        </div>
+        <div class="box">
+            <img th:src="@{~/images/dashboard/cat3.jpg}" alt="">
+            <div class="content">
+                <h3>plants for office</h3>
+                <a href="#" class="btn">see types</a>
+            </div>
+        </div>
+        <div class="box">
+            <img th:src="@{~/images/dashboard/cat4.jpg}" alt="">
+            <div class="content">
+                <h3>gift plants</h3>
+                <a href="#" class="btn">see types</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- category section ends -->
+
+<!-- product section starts  -->
+
+<section class="product" id="product">
+
+    <h1 class="heading"> new products </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img th:src="@{~/images/dashboard/product1.jpg}" alt="">
+            <h3>latest plants</h3>
+            <a href="#" class="btn">view information</a>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img th:src="@{~/images/dashboard/product2.jpg}" alt="">
+            <h3>latest plants</h3>
+            <a href="#" class="btn">view information</a>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img th:src="@{~/images/dashboard/product3.jpg}" alt="">
+            <h3>latest plants</h3>
+            <a href="#" class="btn">view information</a>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img th:src="@{~/images/dashboard/product4.jpg}" alt="">
+            <h3>latest plants</h3>
+            <a href="#" class="btn">view information</a>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img th:src="@{~/images/dashboard/product5.jpg}"alt="">
+            <h3>latest plants</h3>
+            <a href="#" class="btn">view information</a>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <img th:src="@{~/images/dashboard/product6.jpg}" alt="">
+            <h3>latest plants</h3>
+            <a href="#" class="btn">view information</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- product section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+    <h1 class="heading">get in touch</h1>
+
+    <div class="row">
+
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15076.895920873054!2d72.83196972644954!3d19.141670564195152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63aceef0c69%3A0x2aa80cf2287dfa3b!2sJogeshwari%20West%2C%20Mumbai%2C%20Maharashtra%20400047!5e0!3m2!1sen!2sin!4v1621609263469!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+
+        <form action="">
+
+            <div class="inputBox">
+                <input type="text" required>
+                <label>name</label>
+            </div>
+            <div class="inputBox">
+                <input type="email" required>
+                <label>email</label>
+            </div>
+            <div class="inputBox">
+                <input type="number" required>
+                <label>number</label>
+            </div>
+            <div class="inputBox">
+                <textarea required name="" id="" cols="30" rows="10"></textarea>
+                <label>message</label>
+            </div>
+
+            <input type="submit" value="send message" class="btn">
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="#">category</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">linked</a>
+        </div>
+        <section class="icons-container">
+            <div class="icon">
+                <img th:src="@{~/images/dashboard/icon4.png}" alt="">
+                <div class="content">
+                    <h3>Support 24/7</h3>
+                    <p>Contact us anytime</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+<!-- footer section ends -->
+
+<!-- scroll top button  -->
+<a href="#home" class="scroll-top fas fa-angle-up"></a>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script th:href="@{~/js/dashbo.js}"></script>
+
+</body>
+</html>
