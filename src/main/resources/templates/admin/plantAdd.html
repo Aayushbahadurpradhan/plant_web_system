@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img th:src="@{/images/logo.png}" src="../static/images/logo.png" width="auto" height="40"
+            <img th:src="@{/images/logo1.webp}" src="../static/images/logo.png" width="auto" height="40"
                  class="d-inline-block align-top" alt=""/>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -27,10 +27,10 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/admin}" href="#">admin-home</a>
+                    <a class="nav-link" th:href="@{/admin}" >admin-home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/logout}" href="#">logout</a>
+                    <a class="nav-link" th:href="@{/logout}" >logout</a>
                 </li>
 
             </ul>
@@ -38,86 +38,45 @@
         </div>
     </div>
 </nav>
-<div class="container">
-    <h3>Add a new Plant</h3>
-    <form th:action="@{/admin/plants/add}" method="post" th:object="${plantsDTO}" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-sm-5">
 
-                <input type="hidden" name="id" th:field="*{id}">
+<div class="container">
+        <h3>Add a new Plant</h3>
+    <div class="row">
+        <div class="col-sm-4">
+            <form method="post" th:action="@{/product/add}"  th:object="${plant}" enctype="multipart/form-data">
+                <input type="hidden" name="id"  th:field="*{id}" th:value="${plant.id}">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" required th:field="*{name}" name="name" id="name"
-                           placeholder="Enter name">
-
-                </div>
-                <div class="form-group">
-                    <label for="category">Select Category</label>
-                    <select class="form-control" th:field="*{categoryId}" id="category" name="category">
-                        <option th:each="category :${categories}"
-                                th:value="${category.id}"
-                                th:text="${category.name}"
-                        >
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="price">Price</label>
-                    <input type="number" class="form-control" required th:field="*{price}" name="price" id="price"
-                           placeholder="Price">
-                </div>
-                <div class="form-group">
-                    <label for="weight">Weight in grams</label>
-                    <input type="number" class="form-control" required th:field="*{weight}" name="weight" id="weight"
-                           placeholder="Weight">
+                    <input type="text" class="form-control" required th:field="*{namep}" th:value="${plant.namep}" name="name" id="name"  placeholder="Enter name">
                 </div>
                 <div class="form-group">
                     <label for="description">Plant Description</label>
-                    <textarea class="form-control" rows="5" th:field="*{description}" name="description" id="description"></textarea>
-                </div>
-            </div>
-            <div class="col-sm-5">
-                <p>Plant Image</p>
-                <div class="custom-file">
-                    <input type="file"  class="custom-file-input" name="plantImage" accept="image/jpeg, image/png"  id="plantImage"/>
-                    <label class="custom-file-label" for="plantImage">Choose file</label>
+                    <input type="text" class="form-control" required th:field="*{description}" th:value="${plant.description}" name="description" id="description"  placeholder="Enter description">
+<!--                    <textarea class="form-control" rows="5" th:field="*{description}" th:object="${plant.description}" name="description" id="description"></textarea>-->
                 </div>
                 <div class="form-group">
-                    <img src="#" id="imgPreview" height="100px" width="100px" th:src="@{${'/plantImages/' + plantDTO.imageName}}" style="margin-top: 20px" alt=" ">
+<!--                    <label for="imageUrl">Plant Image Url</label>-->
+<!--                    <input type="url" th:field="*{imageUrl}" th:object="${plant.imageUrl}" name="imageUrl" id="imageUrl" placeholder="Enter url">-->
+<!--                    <img id="imgPreview" height="200px" width="200px" th:src="@{${plant.imageUrl}}" style="margin-top: 20px" alt="">-->
+                    <input type="file" name="image" accept="image/*" class="form-control-file">
                 </div>
-                <input type="hidden" name="imgName" th:value="${plantDTO.imageName}">
+<!--                <div class="form-group">-->
+<!--                    <label for="category">Select Category</label>-->
+<!--                    <select class="form-control" th:field="*{categoryId}" id="category" name="category">-->
+<!--                        <option th:each="category :${categoryList}"-->
+<!--                                th:value="${category.id}"-->
+<!--                                th:text="${category.name}"-->
+<!--                        >-->
+<!--                    </select>-->
+<!--                </div>-->
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-<script>
-    function readURL(input){
-        if(input.files && input.files[0]){
-            var reader = new FileReader();
-            reader.onload = function(e){
-                $('#imgPreview').attr('src', e.target.result).width(100).height(100);
-            }
-            reader.readAsDataURL(input.files[0])
-        }
-    }
-    $('#plantImage').change(function(){
-        readURL(this);
-    });
-    $(".custom-file-input").on("change", function() {
-        var fileName = $(this).val().split("\\").pop();
-        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });
-</script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

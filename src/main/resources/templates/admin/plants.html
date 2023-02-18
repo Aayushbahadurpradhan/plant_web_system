@@ -37,13 +37,13 @@
 </nav>
 <div class="container-fluid">
 
-    <a th:href="@{/admin/plants/add}" style="margin: 20px 0" class="btn btn-primary">Add Plant</a>
+    <a th:href="@{/product/create}" style="margin: 20px 0" class="btn btn-primary">Add Plant</a>
     <table class="table">
         <thead class="thead-light">
         <tr>
             <th scope="col">SN</th>
             <th scope="col">Plant Name</th>
-            <th scope="col">Category</th>
+<!--            <th scope="col">Category</th>-->
             <th scope="col">Preview</th>
             <th scope="col">Delete</th>
             <th scope="col">Update</th>
@@ -51,15 +51,24 @@
         </thead>
         <tbody>
 
-        <tr th:each="plant, iStat : ${plants}">
-            <th scope="row" th:text="${iStat.index + 1}">1</th>
-            <td th:text="${plant.name}">Larry</td>
-            <td th:text="${plant.category.name}">Larry</td>
-            <td><img src="" height="100px" width="100px"  th:src="@{${'/plantImages/' + plant.imageName}}"></td>
+<!--        <tr th:each="plant, iStat : ${plants}">-->
+<!--            <th scope="row" th:text="${iStat.index + 1}">1</th>-->
+<!--            <td th:text="${plant.name}">Larry</td>-->
+<!--            <td th:text="${plant.category.name}">Larry</td>-->
+<!--            <td><img src="" height="100px" width="100px"  th:src="@{${'/plantImages/' + plant.imageName}}"></td>-->
 
-            <td><a href="" th:href="@{/admin/plant/delete/{id}(id=${plant.id})}" class="btn btn-danger">Delete</a></td>
-            <td><a href="" th:href="@{/admin/plant/update/{id}(id=${plant.id})}" class="btn btn-warning">Update</a></td>
+<!--            <td><a href="" th:href="@{/admin/plant/delete/{id}(id=${plant.id})}" class="btn btn-danger">Delete</a></td>-->
+<!--            <td><a href="" th:href="@{/admin/plant/update/{id}(id=${plant.id})}" class="btn btn-warning">Update</a></td>-->
 
+<!--        </tr>-->
+        <tr th:each="plant:${plantList}">
+            <td th:text="${plant.id}"></td>
+            <td th:text="${plant.namep}"></td>
+<!--            <td th:text="${category.name}"></td>-->
+            <td><img src="" height="100px" width="100px"  th:src="'data:image/webp;base64,'+${plant.imageBase64}"></td>
+
+            <td><a th:href="@{~/product/delete/}+${plant.id}" class="btn btn-danger">Delete</a></td>
+            <td><a th:href="@{~/product/edit/}+${plant.id}" class="btn btn-warning">Update</a></td>
         </tr>
         </tbody>
     </table>
