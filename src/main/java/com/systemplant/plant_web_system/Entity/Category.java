@@ -21,7 +21,6 @@ public class Category {
     @Column(nullable = false)
     private String name;
 
-
-
-
+    @Column(name = "image")
+    private String image;
 }

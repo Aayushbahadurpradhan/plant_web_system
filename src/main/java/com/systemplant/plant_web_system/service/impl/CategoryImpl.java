@@ -27,6 +27,7 @@ public class CategoryImpl implements CategoryService {
         Category category = new Category();
         category.setId(categoryPojo.getId());
         category.setName(categoryPojo.getName());
+        category.setImage(categoryPojo.getImage());
         categoryRepo.save(category);
         return "Created";
     }

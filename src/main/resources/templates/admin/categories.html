@@ -53,6 +53,7 @@
         <tr th:each="category:${categoryList}">
                <td th:text="${category.id}"></td>
                <td th:text="${category.name}"></td>
+            <td><img height="100px" width="100px" alt="img not found" th:src="${category.image}"></td>
 
 
             <td><a th:href="@{~/admin/delete/}+${category.id}" class="btn btn-danger">Delete</a></td>

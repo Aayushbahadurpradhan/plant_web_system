@@ -17,8 +17,12 @@ public class CategoryPojo {
     @NotNull
     private String name;
 
+    @NotNull
+    private String image;
+
     public CategoryPojo(Category category){
         this.id=category.getId();
         this.name=category.getName();
+        this.image=getImage();
     }
 }

@@ -14,7 +14,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" th:href="@{/admin}">
             <img th:src="@{/images/logo/logo.webp}"   width="auto" height="40"
                  class="d-inline-block align-top" alt=""/>
         </a>
@@ -65,8 +65,6 @@
                 <div class="form-group">
                     <label for="image">Plant Image Url</label>
                     <input type="url" th:field="*{image}" th:value="${plant.image}" name="image" id="image" placeholder="Enter url">
-<!--                    <img id="imgPreview" height="200px" width="200px" th:src="@{${plant.image}}" style="margin-top: 20px" alt="">-->
-<!--                    <input type="file" name="image" accept="image/*" class="form-control-file">-->
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
