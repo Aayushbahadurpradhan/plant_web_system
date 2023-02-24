@@ -17,4 +17,6 @@ public interface PlantService {
     Plant fetchById(Integer id);
 
     void deleteById(Integer id);
+
+    List<Plant> getAllPlant();
 }

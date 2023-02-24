@@ -25,6 +25,7 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
     private final PlantService plantService;
+    private final CategoryService categoryService;
 
     @GetMapping
     public String plantHome(){
@@ -33,42 +34,48 @@ public class ProductController {
 
     @GetMapping("/plants")
     public String getPlantsPage(Model model){
-        List<Plant> plant=plantService.fetchAll();
-        model.addAttribute("plantList", plant.stream().map(plante ->
-                Plant.builder()
-                        .id(plante.getId())
-                        .namep(plante.getNamep())
-                        .description(plante.getDescription())
-                        .imageBase64(getImageBase64(plante.getImage()))
-                        .build()
-        ));
+        model.addAttribute("plantList", plantService.getAllPlant());
+        model.addAttribute("categoryList",categoryService.fetchAll());
+//        List<Plant> plant=plantService.fetchAll();
+//        model.addAttribute("plantList", plant.stream().map(plante ->
+//                Plant.builder()
+//                        .id(plante.getId())
+//                        .namep(plante.getNamep())
+//                        .description(plante.getDescription())
+//                        .image(plante.getImage())
+////                        .imageBase64(getImageBase64(plante.getImage()))
+//                        .build()
+//        ));
         return "/admin/plants";
     }
 
     @GetMapping("/create")
     public String CreatePlant(Model model){
         model.addAttribute("plant",new PlantPojo());
+        model.addAttribute("categoryList",categoryService.fetchAll());
+//        model.addAttribute("plantList", plantService.getAllProduct());
         return "/admin/plantAdd";
     }
 
-    @GetMapping("/list")
-    public String getPlantsList(Model model){
-        List<Plant> plant=plantService.fetchAll();
-        model.addAttribute("plantList", plant.stream().map(plant1 ->
-                Plant.builder()
-                        .id(plant1.getId())
-                        .namep(plant1.getNamep())
-                        .description(plant1.getDescription())
-                        .imageBase64(getImageBase64(plant1.getImage()))
-                        .build()
-        ));
-//        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
-        return "/products/plant";
-    }
-    @PostMapping("/add")
+//    @GetMapping("/list")
+//    public String getPlantsList(Model model){
+//        List<Plant> plant=plantService.fetchAll();
+//        model.addAttribute("plantList", plant.stream().map(plant1 ->
+//                Plant.builder()
+//                        .id(plant1.getId())
+//                        .namep(plant1.getNamep())
+//                        .description(plant1.getDescription())
+//                        .image(plant1.getImage())
+////                        .imageBase64(getImageBase64(plant1.getImage()))
+//                        .build()
+//        ));
+////        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
+//        return "/admin/plants";
+//    }
+    @PostMapping("/plants")
     public String savePlant (@Valid PlantPojo plantPojo) throws IOException {
         plantService.savePlant(plantPojo);
-        return "redirect:/product";
+        return "redirect:/product/plants";
     }
 
     @GetMapping("/edit/{id}")
@@ -82,21 +89,21 @@ public class ProductController {
     @GetMapping("/delete/{id}")
     public String getDeleteAction(@PathVariable("id") Integer id,Model model){
         plantService.deleteById(id);
-        return "redirect:/admin/plants";
+        return "redirect:/product/plants";
     }
 
-    public String getImageBase64(String fileName) {
-        String filePath = System.getProperty("plant.dir") + "/plant_web/";
-        File file = new File(filePath + fileName);
-        byte[] bytes = new byte[0];
-        try {
-            bytes = Files.readAllBytes(file.toPath());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-        String base64 = Base64.getEncoder().encodeToString(bytes);
-        return base64;
-    }
+//    public String getImageBase64(String fileName) {
+////        String filePath = System.getProperty("user.dir") + "/src/main/rescources/static/images/";
+//        File file = new File("https://media.istockphoto.com/id/637696304/photo/patan.jpg?s=612x612&w=0&k=20&c=-53aSTGBGoOOqX5aoC3Hs1jhZ527v3Id_xOawHHVPpg=");
+//        byte[] bytes = new byte[0];
+//        try {
+//            bytes = Files.readAllBytes(file.toPath());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//        String base64 = Base64.getEncoder().encodeToString(bytes);
+//        return base64;
+//    }
 
 }

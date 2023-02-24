@@ -3,8 +3,10 @@ package com.systemplant.plant_web_system.controller;
 
 
 import com.systemplant.plant_web_system.Entity.Category;
+import com.systemplant.plant_web_system.Entity.User;
 import com.systemplant.plant_web_system.pojo.CategoryPojo;
 import com.systemplant.plant_web_system.service.CategoryService;
+import com.systemplant.plant_web_system.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -19,6 +21,7 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
     private final CategoryService categoryService;
+    private final UserService userService;
 
     @GetMapping
     public String adminHome(){
@@ -63,4 +66,15 @@ public class AdminController {
         return "redirect:/admin/categories";
     }
 
+    @GetMapping("/userlist")
+    public String getUserList(Model model){
+        List<User> users=userService.fetchAll();
+        model.addAttribute("userList",users);
+        return "admin/userview";
+    }
+    @GetMapping("/userdelete/{id}")
+    public String getDeleteuserAction(@PathVariable("id") Integer id,Model model){
+        userService.deleteById(id);
+        return "redirect:/admin/userlist";
+    }
 }

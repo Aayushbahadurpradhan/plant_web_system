@@ -21,13 +21,19 @@ public class PlantPojo {
     @NotNull
     private String description;
 
-    private MultipartFile image;
+    private Integer category;
+
+    //    private MultipartFile image;
+    @NotNull
+    private String image;
 
 
     public PlantPojo(Plant plant){
         this.id=plant.getId();
         this.namep=plant.getNamep();
         this.description=getDescription();
+        this.category=getCategory();
+        this.image=getImage();
 
     }
 }
